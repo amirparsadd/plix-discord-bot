@@ -1,0 +1,20 @@
+{
+    "name": "commandkit-app",
+    "version": "0.0.0",
+    "description": "",
+    "main": "./src/index.js",
+    "scripts": {
+        "start": "node ./src/index.js",
+        "dev": "nodemon --ext js,json,ts ./src/index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "module",
+    "dependencies": {
+        "commandkit": "^0.1.10",
+        "discord.js": "^14.15.3",
+        "dotenv": "^16.4.5",
+        "nodemon": "^3.1.4"
+    }
+}
