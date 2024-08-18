@@ -1,6 +1,6 @@
 import { Schema, Types, model } from "mongoose"
 
-const /*ENUM*/ TicketStatus = {
+export const /*ENUM*/ TicketStatus = {
   WAITING: "WAITING",
   ANSWERED: "ANSWERED"
 }
@@ -30,7 +30,4 @@ const TicketSchema = new Schema({
   }
 })
 
-module.exports = {
-  ticketModel: model("Ticket", TicketSchema),
-  TicketStatus
-}
+export const ticketModel = model("Ticket", TicketSchema);

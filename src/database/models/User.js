@@ -1,6 +1,6 @@
 import { Schema, Types, model } from "mongoose"
 
-const /*ENUM*/ UserRanks = {
+export const /*ENUM*/ UserRanks = {
   NONE: "NONE",
   CUSTOMER: "CUSTOMER",
   SUPPORT: "SUPPORT",
@@ -39,7 +39,4 @@ const UserSchema = new Schema({
   }
 })
 
-module.exports = {
-  userModel: model("User", UserSchema),
-  UserRanks
-}
+export const userModel = model("User", UserSchema)

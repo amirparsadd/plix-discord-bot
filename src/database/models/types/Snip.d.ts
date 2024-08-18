@@ -1,5 +1,5 @@
 export interface ISnip {
-  id: string,
+  uid: string,
   author_name: string,
   content: string
 }

@@ -1,12 +1,12 @@
 import { Schema, Types, model } from "mongoose"
 
-const /*ENUM*/ ProductType = {
+export const /*ENUM*/ ProductType = {
   MINECRAFT: "MINECRAFT",
   TEAMSPEAK: "TEAMSPEAK",
   DOMAIN: "DOMAIN"
 }
 
-const /*ENUM*/ ProductBillingType = {
+export const /*ENUM*/ ProductBillingType = {
   ONCE: "ONCE",
   MONTHLY: "MONTHLY",
   YEARLY: "YEARLY"
@@ -46,8 +46,5 @@ const ProductSchema = new Schema({
   },
 })
 
-module.exports = {
-  productModel: model("Product", ProductSchema),
-  ProductBillingType,
-  ProductType
-}
+
+export const productModel = model("Product", ProductSchema)

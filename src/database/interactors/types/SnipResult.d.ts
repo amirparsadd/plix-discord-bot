@@ -1,6 +1,6 @@
 export interface ISnipResult {
   dbid: string,
-  id: string,
+  uid: string,
   author_name: string,
   content: string
 }

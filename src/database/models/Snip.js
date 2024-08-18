@@ -1,9 +1,10 @@
 import { Schema, Types, model } from "mongoose"
 
 const SnipSchema = new Schema({
-  id: {
+  uid: {
     type: String,
     required: true,
+    unique: true
   },
   author_name: {
     type: String,
@@ -15,6 +16,4 @@ const SnipSchema = new Schema({
   }
 })
 
-module.exports = {
-  snipModel: model("Snip", SnipSchema)
-}
+export const snipModel = model("Snip", SnipSchema)

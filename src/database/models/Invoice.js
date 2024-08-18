@@ -1,6 +1,6 @@
 import { Schema, Types, model } from "mongoose"
 
-const /*ENUM*/ InvoiceType = {
+export const /*ENUM*/ InvoiceType = {
   PENDING: "PENDING",
   PAID: "PAID",
   DUE: "DUE"
@@ -44,7 +44,5 @@ const InvoiceSchema = new Schema({
   }
 })
 
-module.exports = {
-  invoiceModel: model("Invoice", InvoiceSchema),
-  InvoiceType
-}
+
+export const invoiceModel = model("Invoice", InvoiceSchema)
