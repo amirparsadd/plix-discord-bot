@@ -1,4 +1,4 @@
-const { Schema, Types, model } = require("mongoose")
+import { Schema, Types, model } from "mongoose"
 
 const SnipSchema = new Schema({
   id: {
