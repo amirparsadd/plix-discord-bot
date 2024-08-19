@@ -19,7 +19,11 @@ export const data = new SlashCommandBuilder()
       .setMinLength(15)
       .setMaxLength(1000)
   )
-
+  
+/**
+ * 
+ * @param {import("commandkit").CommandProps} param0 
+ */
 export function run({ interaction, client, handler }) {
   interaction.reply(`test`);
 }

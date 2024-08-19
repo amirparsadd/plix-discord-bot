@@ -1,11 +1,8 @@
-import { IProductResult } from "./ProductResult";
-import { IUserResult } from "./UserResult";
-
 export interface IInvoiceResult {
   dbid: string,
-  owner: IUserResult,
+  owner: string,
   reason: string,
-  product: IProductResult,
+  product: string,
   amount: number,
   status: string,
   createdAt: number,

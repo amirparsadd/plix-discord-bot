@@ -1,5 +1,4 @@
-import { productModel } from "../models/Product"
-import { convertByDBID as convertUserByDBID } from "./User"
+import { productModel } from "../models/Product.js"
 
 /**
  * 
@@ -15,7 +14,7 @@ export function convert(productDocument){
     billing_type: productDocument.billing_type,
     active: productDocument.active,
     price: productDocument.price,
-    owner: convertUserByDBID(productDocument.owner.toString()),
+    owner: productDocument.owner.toString(),
     createdAt: productDocument.createdAt,
     updatedAt: productDocument.updatedAt,
   }

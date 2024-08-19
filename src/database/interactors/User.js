@@ -1,5 +1,4 @@
-import { userModel } from "../models/User"
-import { convertByDBID as convertProductByDBID } from "./Product"
+import { userModel } from "../models/User.js"
 
 /**
  * 
@@ -15,9 +14,8 @@ export function convert(userDocument){
     discord_id: userDocument.discord_id,
     rank: userDocument.rank,
     products: userDocument.products.map(val => val.toString()),
-    invoices: null,
-    tickets: null
-    // TODO Impl when deps are implemented
+    invoices: userDocument.invoices.map(val => val.toString()),
+    tickets: userDocument.tickets.map(val => val.toString())
   }
 }
 
@@ -32,4 +30,27 @@ export function convertByDBID(dbid){
   if(userDocument == null) return null
 
   return convert(userDocument)
+}
+
+export async function getUserByDiscordID(id){
+  const userDocument = await userModel.findOne({ discord_id: id })
+
+  convert(userDocument)
+}
+
+export async function createUser(discord_id, _additional) {
+  try {
+    const userDocument = await userModel.create({discord_id, ..._additional})
+
+    return convert(userDocument)
+  }catch(err){
+    console.error("an error occured when creating a user\n" + err)
+    return null
+  }
+}
+
+export async function createUserWithName(discord_id, name) {
+  const userDocument = await createUser(discord_id, { name })
+
+  return userDocument
 }

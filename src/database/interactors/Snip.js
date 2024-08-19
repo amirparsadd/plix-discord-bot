@@ -1,4 +1,4 @@
-import { snipModel } from "../models/Snip"
+import { snipModel } from "../models/Snip.js"
 
 /**
  * 

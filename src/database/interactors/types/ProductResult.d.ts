@@ -1,4 +1,3 @@
-import { IUserResult } from "./UserResult";
 
 export interface IProductResult {
   dbid: string,
@@ -6,7 +5,7 @@ export interface IProductResult {
   billing_type: string,
   active: boolean,
   price: number,
-  owner: IUserResult,
+  owner: string,
   createdAt: number,
   renewedAt: number
 }

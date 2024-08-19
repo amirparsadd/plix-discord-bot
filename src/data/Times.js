@@ -8,4 +8,4 @@ Times.WEEK = Times.DAY * 7
 Times.MONTH = Times.DAY * 30 
 Times.YEAR = Times.DAY * 365
 
-module.exports = Times
+export default Times

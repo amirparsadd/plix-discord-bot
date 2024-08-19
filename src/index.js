@@ -5,6 +5,7 @@ import { CommandKit } from 'commandkit';
 
 import { dirname as dn } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import setupDatabase from './database/index.js';
 
 const dirname = dn(fileURLToPath(import.meta.url));
 
@@ -24,4 +25,8 @@ new CommandKit({
     validationsPath: `${dirname}/validators`
 });
 
-client.login(process.env.TOKEN);
+// this looks like compiled code but trust me its needed to work
+(async () => {
+  await setupDatabase()
+  client.login(process.env.TOKEN);
+})();

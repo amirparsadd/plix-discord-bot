@@ -1,5 +1,4 @@
-import { ticketModel } from "../models/Ticket"
-import { convertByDBID as convertUserByDBID } from "./User"
+import { ticketModel } from "../models/Ticket.js"
 
 /**
  * 
@@ -11,11 +10,12 @@ export function convert(ticketDocument){
 
   return {
     dbid: ticketDocument._id.toString(),
-    author: convertUserByDBID(ticketDocument.author.toString()),
-    answer_author: convertUserByDBID(ticketDocument.answer_author.toString()),
-    title: null,
-    content: null,
-    
+    author: ticketDocument.author.toString(),
+    answer_author: ticketDocument.answer_author.toString(),
+    title: ticketDocument.content,
+    content: ticketDocument.content,
+    answer: ticketDocument.answer,
+    status: ticketDocument.status
   }
 }
 
