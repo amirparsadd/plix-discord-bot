@@ -10,7 +10,7 @@ export function convert(userDocument){
   if(userDocument == null) return null
 
   return {
-    dbid: userDocument._id,
+    dbid: userDocument._id.toString(),
     name: userDocument.name,
     discord_id: userDocument.discord_id,
     rank: userDocument.rank,

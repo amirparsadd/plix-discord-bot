@@ -9,7 +9,7 @@ export function convert(snipDocument){
   if(snipDocument == null) return null
 
   return {
-    dbid: snipDocument._id,
+    dbid: snipDocument._id.toString(),
     id: snipDocument.uid,
     author_name: snipDocument.author_name,
     content: snipDocument.content

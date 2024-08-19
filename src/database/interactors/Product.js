@@ -10,7 +10,7 @@ export function convert(productDocument){
   if(productDocument == null) return null
 
   return {
-    dbid: productDocument._id,
+    dbid: productDocument._id.toString(),
     product_type: productDocument.product_type,
     billing_type: productDocument.billing_type,
     active: productDocument.active,

@@ -7,7 +7,7 @@ export interface IUserResult {
   name: string,
   discord_id: string,
   rank: string,
-  products: Array<IProductResult>,
-  invoices: Array<IInvoiceResult>,
-  tickets: Array<ITicketResult>
+  products: Array<string>,
+  invoices: Array<string>,
+  tickets: Array<string>
 }

@@ -1,6 +1,6 @@
 import 'dotenv/config';
 
-import { Client, IntentsBitField } from 'discord.js';
+import { Client, IntentsBitField, REST, Routes } from 'discord.js';
 import { CommandKit } from 'commandkit';
 
 import { dirname as dn } from 'node:path';
@@ -20,7 +20,8 @@ const client = new Client({
 new CommandKit({
     client,
     eventsPath: `${dirname}/events`,
-    commandsPath: `${dirname}/commands`
+    commandsPath: `${dirname}/commands`,
+    validationsPath: `${dirname}/validators`
 });
 
 client.login(process.env.TOKEN);
