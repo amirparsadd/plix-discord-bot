@@ -1,10 +1,6 @@
 import Colors from "../../data/Colors.js";
 import { _embedStatics } from "./_internals.js";
 
-/**
- * 
- * @param {import("../../database/interactors/types/UserResult.d.ts").IUserResult} account 
- */
 export default function accountCreatedEmbed(){
   return {
     title: "حساب شما راه اندازی  شد <a:Firework:1275198013400154184>",

@@ -35,7 +35,7 @@ export function convertByDBID(dbid){
 export async function getUserByDiscordID(id){
   const userDocument = await userModel.findOne({ discord_id: id })
 
-  convert(userDocument)
+  return convert(userDocument)
 }
 
 export async function createUser(discord_id, _additional) {

@@ -1,5 +1,7 @@
 import { SlashCommandBuilder } from "discord.js";
 import accountCreatedEmbed from "../../components/embeds/accountCreated.js";
+import { createUserWithName, getUserByDiscordID } from "../../database/interactors/User.js";
+import errorEmbed from "../../components/embeds/error.js";
 
 export const data = new SlashCommandBuilder()
   .setName("signup")
@@ -16,12 +18,22 @@ export const data = new SlashCommandBuilder()
  * 
  * @param {import("commandkit").CommandProps} param0 
  */
-export function run({ interaction, client, handler }) {
-  interaction.reply({ embeds: [accountCreatedEmbed(null)] })
+export async function run({ interaction, client, handler }) {
+  await interaction.deferReply();
+
+  const newUser = await createUserWithName(interaction.user.id, interaction.options.get("name").value)
+
+  if(newUser === null){
+    await interaction.editReply({ embeds: [errorEmbed("در ساخت کاربر در دیتابیس مشکلی پیش آمد", 100101)] })
+    return
+  }
+
+  await interaction.editReply({ embeds: [accountCreatedEmbed()] })
 }
 
 export const options = {
   devOnly: false,
   deleted: false,
-  dmOnly: true
+  dmOnly: true,
+  needsAccount: false
 }

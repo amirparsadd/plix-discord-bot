@@ -9,14 +9,14 @@ export default async function validator({ interaction, commandObj, client, handl
 
   const account = await getUserByDiscordID(interaction.user.id)
 
-  if(commandObj.options.needsAccount){
+  if(commandObj.options.needsAccount === true){
     if(!account){
       interaction.reply("You Dont Have An Account!")
       return true
     }
-  }else {
+  }else{
     if(account){
-      interaction.reply("Yo Do Have An Account")
+      interaction.reply("You Do Have An Account!")
       return true
     }
   }
