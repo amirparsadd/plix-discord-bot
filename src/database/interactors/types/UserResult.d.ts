@@ -1,5 +1,6 @@
 export interface IUserResult {
   dbid: string,
+  balance: number,
   name: string,
   discord_id: string,
   rank: string,

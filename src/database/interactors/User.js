@@ -10,6 +10,7 @@ export function convert(userDocument){
 
   return {
     dbid: userDocument._id.toString(),
+    balance: userDocument.balance,
     name: userDocument.name,
     discord_id: userDocument.discord_id,
     rank: userDocument.rank,

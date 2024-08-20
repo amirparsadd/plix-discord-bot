@@ -8,6 +8,7 @@ export default async function validator({ interaction, commandObj, client, handl
   if(commandObj.options.needsAccount === undefined) return false
 
   const account = await getUserByDiscordID(interaction.user.id)
+  interaction.account = account
 
   if(commandObj.options.needsAccount === true){
     if(!account){
@@ -21,7 +22,6 @@ export default async function validator({ interaction, commandObj, client, handl
     }
   }
 
-  interaction.account = account
 
   return false
 }

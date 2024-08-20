@@ -3,7 +3,8 @@ import { Schema, Types, model } from "mongoose"
 export const /*ENUM*/ ProductType = {
   MINECRAFT: "MINECRAFT",
   TEAMSPEAK: "TEAMSPEAK",
-  DOMAIN: "DOMAIN"
+  DOMAIN: "DOMAIN",
+  ADS_DISABLE: "ADS_DISABLE"
 }
 
 export const /*ENUM*/ ProductBillingType = {

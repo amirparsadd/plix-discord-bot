@@ -5,7 +5,7 @@
     "main": "./src/index.js",
     "scripts": {
         "start": "node ./src/index.js",
-        "dev": "nodemon --ext js,json,ts ./src/index.js"
+        "dev": "nodemon --ext js,json,ts ./src/bot.js"
     },
     "keywords": [],
     "author": "",
@@ -16,6 +16,7 @@
         "discord.js": "^14.15.3",
         "dotenv": "^16.4.5",
         "mongoose": "^8.5.3",
-        "nodemon": "^3.1.4"
+        "nodemon": "^3.1.4",
+        "pretty-ms": "^9.1.0"
     }
 }

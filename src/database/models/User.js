@@ -14,6 +14,10 @@ const UserSchema = new Schema({
     type: String,
     default: "No Name"
   },
+  balance: {
+    type: Number,
+    default: 0,
+  },
   discord_id: {
     type: String,
     required: true
