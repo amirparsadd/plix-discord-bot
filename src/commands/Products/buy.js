@@ -50,9 +50,7 @@ async function handleCategoriesResult(message) {
     const response = await sendProducts(result, mappedcategories[result.values[0]])
 
     return await handleProducts(response)
-  } catch (err) {
-    message.reply("خیلی طولش دادی، کامندو دوباره بزن")
-  }
+  } catch (err) {}
 }
 
 /**
@@ -95,9 +93,7 @@ async function handleProducts(message) {
     if(result.customId === "BACK"){
       sendCategories(result)
     }
-  } catch (err) {
-    message.reply("خیلی طولش دادی، کامندو دوباره بزن")
-  }
+  } catch (err) {}
 }
 
 export const options = {
