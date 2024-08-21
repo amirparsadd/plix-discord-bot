@@ -11,7 +11,8 @@ export interface IProduct {
   type: ProductType | string,
   name: string,
   info: string,
-  billing: ProductBillingType | string
+  billing: ProductBillingType | string,
+  price: number
 }
 
 export type ProductType = "MINECRAFT" | "TEAMSPEAK" | "DOMAIN" | "SERVICES"
