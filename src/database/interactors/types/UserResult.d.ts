@@ -6,5 +6,6 @@ export interface IUserResult {
   rank: string,
   products: Array<string>,
   invoices: Array<string>,
-  tickets: Array<string>
+  // tickets: Array<string>
+  // ? Seemed Useless
 }

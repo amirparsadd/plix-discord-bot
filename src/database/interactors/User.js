@@ -16,7 +16,8 @@ export function convert(userDocument){
     rank: userDocument.rank,
     products: userDocument.products.map(val => val.toString()),
     invoices: userDocument.invoices.map(val => val.toString()),
-    tickets: userDocument.tickets.map(val => val.toString())
+    // tickets: userDocument.tickets.map(val => val.toString())
+    // ? Seemed Useless
   }
 }
 

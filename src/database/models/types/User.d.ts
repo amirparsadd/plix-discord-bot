@@ -7,5 +7,6 @@ export interface IUser {
   rank: string,
   products: Array<Types.ObjectId>,
   invoices: Array<Types.ObjectId>,
-  tickets: Array<Types.ObjectId>
+  // tickets: Array<Types.ObjectId>
+  // ? Seemed Useless
 }

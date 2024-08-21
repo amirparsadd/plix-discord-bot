@@ -15,7 +15,7 @@ export const Translations = {
     MINECRAFT: "مانکرافت",
     TEAMSPEAK: "تیم اسپیک",
     DOMAIN: "دامنه",
-    ADS_DISABLE: "خاموش کردن تبلیغات"
+    SERVICES: "سرویس ها"
   },  
   productBillingType: {
     ONCE: "یک بار",

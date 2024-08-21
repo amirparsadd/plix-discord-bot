@@ -4,7 +4,7 @@ export const /*ENUM*/ ProductType = {
   MINECRAFT: "MINECRAFT",
   TEAMSPEAK: "TEAMSPEAK",
   DOMAIN: "DOMAIN",
-  ADS_DISABLE: "ADS_DISABLE"
+  SERVICES: "SERVICES"
 }
 
 export const /*ENUM*/ ProductBillingType = {

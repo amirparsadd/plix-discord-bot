@@ -35,8 +35,6 @@ export default function accountProfileEmbed(account){
       }
     ],
     color: Colors.PRIMARY,
-    footer: {
-      text: "Made With ❤️ By PlixSMP Developers"
-    }
+    ..._embedStatics()
   }
 }

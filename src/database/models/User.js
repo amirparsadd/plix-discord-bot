@@ -36,11 +36,12 @@ const UserSchema = new Schema({
     ref: "Invoice",
     default: []
   },
-  tickets: {
-    type: [Types.ObjectId],
-    ref: "Ticket",
-    default: []
-  }
+  // tickets: {
+  //   type: [Types.ObjectId],
+  //   ref: "Ticket",
+  //   default: []
+  // }
+  // ? Seemed Useless
 })
 
 export const userModel = model("User", UserSchema)
