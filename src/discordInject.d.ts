@@ -6,3 +6,5 @@ declare module 'discord.js' {
     account: IUserResult
   }
 }
+
+// TODO This Has Failed

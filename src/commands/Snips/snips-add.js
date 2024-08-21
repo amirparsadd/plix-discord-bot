@@ -1,4 +1,6 @@
 import { SlashCommandBuilder } from "discord.js";
+import { Values } from "../../data/Values.js";
+import errorEmbed from "../../components/embeds/error.js";
 
 export const data = new SlashCommandBuilder()
   .setName("snips-add")
@@ -25,12 +27,20 @@ export const data = new SlashCommandBuilder()
  * @param {import("commandkit").CommandProps} param0 
  */
 export function run({ interaction, client, handler }) {
-  interaction.reply(`test`);
+  interaction.deferReply()
+
+  /**
+   * @type {import("../../database/interactors/types/UserResult").IUserResult}
+   */
+  const account = interaction.account
+
+  if(Values.userRanks[account.rank] < Values.userRanks.MANAGER){
+    return interaction.reply({ embeds: [ errorEmbed("سطح شما کافی نیست!", 4011) ] })
+  }
 }
 
 export const options = {
   devOnly: false,
-  userPermissions: ['Administrator'],
-  botPermissions: ["Administrator"],
-  deleted: false,
+  needsAccount: true,
+  deleted: false
 }

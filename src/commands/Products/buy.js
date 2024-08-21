@@ -1,9 +1,9 @@
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle, CommandInteraction, Message, SlashCommandBuilder, StringSelectMenuBuilder, StringSelectMenuOptionBuilder } from "discord.js";
 import purchaseEmbed, { getEmojiByProductType } from "../../components/embeds/purchase.js";
 import { mappedcategories, products } from "../../data/products.js";
-
-const SPARKLE_EMOJI_ID = "1275206916242542594"
-const BACK_EMOJI_ID = "1275785145600966676"
+import { categoriesSelectMenuActionRow } from "../../components/select_menu/categories.js";
+import { productsSelectMenuActionRow } from "../../components/select_menu/products.js";
+import { backButton } from "../../components/buttons/back.js";
 
 export const data = new SlashCommandBuilder()
   .setName("buy")
@@ -23,22 +23,7 @@ export async function run({ interaction, client, handler }) {
  * @returns {Message}
  */
 async function sendCategories(interaction){
-  const categorySelect = new StringSelectMenuBuilder()
-    .setPlaceholder("یک دسته بندی انتخاب کنید")
-    .setCustomId("IGNORE")
-  
-  products.forEach(category => {
-    categorySelect.addOptions(
-      new StringSelectMenuOptionBuilder()
-        .setEmoji(SPARKLE_EMOJI_ID)
-        .setLabel(category.category)
-        .setValue(category.id))
-  });
-
-  const categorySelectionRow = new ActionRowBuilder()
-    .addComponents([categorySelect])
-
-  const response = await interaction.reply({ embeds: [ purchaseEmbed() ], components: [ categorySelectionRow ], fetchReply: true });
+  const response = await interaction.reply({ embeds: [ purchaseEmbed() ], components: [ categoriesSelectMenuActionRow() ], fetchReply: true });
 
   await handleCategoriesResult(response)
 }
@@ -59,27 +44,10 @@ async function handleCategoriesResult(message) {
  * @param {import("../../data/types/Products.js").ICategory} category 
  */
 async function sendProducts(interaction, category) {
-  const productSelect = new StringSelectMenuBuilder().setPlaceholder("یک محصول انتخاب کنید").setCustomId("IGNORE")
-  
-  category.products.forEach(product => {
-    productSelect.addOptions(
-      new StringSelectMenuOptionBuilder()
-        .setEmoji(getEmojiByProductType(product.type))
-        .setLabel(product.name)
-        .setValue(product.id))
-  });
-
-  const productSelectRow = new ActionRowBuilder().addComponents(productSelect)
-
   const backButtonRow = new ActionRowBuilder()
-    .addComponents(
-      new ButtonBuilder()
-        .setEmoji(BACK_EMOJI_ID)
-        .setLabel("بازگشت")
-        .setStyle(ButtonStyle.Secondary)
-        .setCustomId("BACK"))
+    .addComponents(backButton())
   
-  return await interaction.reply({ embeds: [ purchaseEmbed(category) ], components: [ productSelectRow, backButtonRow ], fetchReply: true })
+  return await interaction.reply({ embeds: [ purchaseEmbed(category) ], components: [ productsSelectMenuActionRow(category), backButtonRow ], fetchReply: true })
 }
 
 /**

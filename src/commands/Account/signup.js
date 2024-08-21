@@ -24,7 +24,7 @@ export async function run({ interaction, client, handler }) {
   const newUser = await createUserWithName(interaction.user.id, interaction.options.get("name").value)
 
   if(newUser === null){
-    await interaction.editReply({ embeds: [errorEmbed("در ساخت کاربر در دیتابیس مشکلی پیش آمد", 100101)] })
+    await interaction.editReply({ embeds: [errorEmbed("در ساخت کاربر در دیتابیس مشکلی پیش آمد", 5001)] })
     return
   }
 
