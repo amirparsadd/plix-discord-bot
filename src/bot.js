@@ -6,7 +6,7 @@ import { CommandKit } from 'commandkit';
 import { dirname as dn } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import setupDatabase from './database/index.js';
-import { mappedProducts, setupProducts } from './data/products.js';
+import { setupProducts } from './data/products.js';
 
 const dirname = dn(fileURLToPath(import.meta.url));
 
@@ -26,9 +26,9 @@ new CommandKit({
     validationsPath: `${dirname}/validators`
 });
 
-// this looks like compiled code but trust me its needed to work
+// Must be wrapped in async
 (async () => {
   setupProducts()
-  await setupDatabase()
+  setupDatabase() //? Mongoose Can Work Before Initializing so why dont we increase bot run time speed by not waiting for DB to connect
   await client.login(process.env.TOKEN);
 })();
